@@ -8,7 +8,7 @@ set(std=c++11)
 ##############
 ##   Build  ##
 ##############
-file(GLOB LEETCODE_LIST src/*.cpp)
+file(GLOB_RECURSE LEETCODE_LIST src/*.cpp)
 
 foreach(LC IN LISTS LEETCODE_LIST)
     message(STATUS "add_leetcode_exec=${LC}") # fatal用于停止构建
