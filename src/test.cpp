@@ -41,9 +41,37 @@ static test getTest()
     return t;
 }
 
+struct alignas(4) s
+// #pragma pack(4)
+// struct s
+{
+    uint8_t a;
+    uint16_t b;
+    uint8_t c;
+};
+struct foo
+{
+    int i;
+    double d;
+    char c;
+};
+
+struct alignas(16) foo_n
+{
+    int i;
+    float d;
+    char c;
+};
+
 int main(int argc, char const *argv[])
 {
-    test trf = getTest();
-    test trf1(getTest());
+    std::cout << sizeof(s) << std::endl;
+    s t;
+    t.a = 1;
+    t.b = 2;
+    t.c = 3;
+    std::cout << hex << (void *)(&t.a) << std::endl;
+    std::cout << hex << (void *)(&t.b) << std::endl;
+    std::cout << hex << (void *)(&t.c) << std::endl;
     return 0;
 }

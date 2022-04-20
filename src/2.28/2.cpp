@@ -8,18 +8,9 @@
 
 #include <iostream>
 #include <vector>
+#include <common/ListNode.hpp>
 
 using namespace std;
-
-struct ListNode
-{
-    int val;
-    ListNode *next;
-    ListNode() : val(0), next(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
-};
-
 class Solution
 {
 public:
@@ -81,31 +72,11 @@ public:
     }
 };
 
-ListNode *vector2list(const vector<int> v)
-{
-    ListNode *head = nullptr;
-    ListNode *ptr;
-    for (size_t i = 0; i < v.size(); ++i)
-    {
-        if (head == nullptr)
-        {
-            head = new ListNode(v[i]);
-            ptr = head;
-        }
-        else
-        {
-            ptr->next = new ListNode(v[i]);
-            ptr = ptr->next;
-        }
-    }
-    return head;
-}
-
 int main(int argc, char const *argv[])
 {
     ListNode *l1, *l2;
-    l1 = vector2list({9,9,9,9,9,9,9});
-    l2 = vector2list({9,9,9,9});
+    l1 = vector2list({9, 9, 9, 9, 9, 9, 9});
+    l2 = vector2list({9, 9, 9, 9});
     if (l1 == nullptr or l2 == nullptr)
     {
         std::cout << "error" << std::endl;
