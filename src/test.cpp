@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -73,5 +74,7 @@ int main(int argc, char const *argv[])
     std::cout << hex << (void *)(&t.a) << std::endl;
     std::cout << hex << (void *)(&t.b) << std::endl;
     std::cout << hex << (void *)(&t.c) << std::endl;
+
+    cout << fixed << setprecision(2) << 2.5555 << endl;
     return 0;
 }

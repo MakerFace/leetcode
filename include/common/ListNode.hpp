@@ -29,3 +29,18 @@ ListNode *vector2list(std::initializer_list<int> v)
     }
     return head;
 }
+
+void print_list(ListNode *root)
+{
+    if (root != nullptr)
+    {
+        std::cout << "[" << root->val;
+        root = root->next;
+    }
+    while (root != nullptr)
+    {
+        std::cout << "," << root->val;
+        root = root->next;
+    }
+    std::cout << "]" << std::endl;
+}
