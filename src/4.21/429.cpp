@@ -9,7 +9,6 @@
 #include <bits/stdc++.h>
 #include "common/Node.hpp"
 #include "common/utils.hpp"
-#define null -1
 
 using namespace std;
 

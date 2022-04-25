@@ -2,6 +2,7 @@
 #include <vector>
 #include <queue>
 #include <initializer_list>
+#define null -1
 
 class Node
 {

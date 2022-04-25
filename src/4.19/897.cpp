@@ -6,7 +6,7 @@
  * @date 2022-04-19
  */
 #include <bits/stdc++.h>
-#include <common/TreeNode.h>
+#include <common/TreeNode.hpp>
 using namespace std;
 
 class Solution
