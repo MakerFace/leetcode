@@ -32,9 +32,10 @@ ListNode *vector2list(std::initializer_list<int> v)
 
 void print_list(ListNode *root)
 {
+    std::cout << "[";
     if (root != nullptr)
     {
-        std::cout << "[" << root->val;
+        std::cout << root->val;
         root = root->next;
     }
     while (root != nullptr)
