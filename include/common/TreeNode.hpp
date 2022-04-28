@@ -63,6 +63,9 @@ void print_tree(TreeNode *root)
         for (int i = 0; i < curChild; ++i)
         {
             TreeNode *temp = queue.front();
+            queue.pop();
+            if (!temp)
+                break;
             if (temp->val == -1)
             {
                 // std::cout << "null,";
@@ -91,22 +94,25 @@ void print_tree(TreeNode *root)
                 }
                 ++nextChild;
             }
-            queue.pop();
         }
         curChild = nextChild;
     }
-    for (auto i = v.end() - 1; i != v.begin() && *i == -1; --i)
+    std::cout << "[";
+    if (!v.empty())
     {
-        v.erase(i);
+        for (auto i = v.end() - 1; i != v.begin() && *i == -1; --i)
+        {
+            v.erase(i);
+        }
+        delete null_node;
+        std::cout << v[0];
+        for (int i = 1; i < v.size(); ++i)
+        {
+            if (v[i] == -1)
+                std::cout << ",null";
+            else
+                std::cout << "," << v[i];
+        }
     }
-    delete null_node;
-    std::cout << "[" << v[0];
-    for (int i = 1; i < v.size(); ++i)
-    {
-        if (v[i] == -1)
-            std::cout << ",null";
-        else
-            std::cout << "," << v[i];
-    }
-    std::cout << "]" << std::endl;
+    std::cout << "]";
 }
