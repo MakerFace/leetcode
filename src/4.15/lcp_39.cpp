@@ -1,5 +1,5 @@
 /**
- * @file 39.cpp
+ * @file lcp_39.cpp
  * @brief 无人机方阵
  * @author chenqi (chenqi@imudges.com)
  * @version 1.0
