@@ -22,5 +22,6 @@ foreach(LC IN LISTS LEETCODE_LIST)
         ${LC_EXEC}
         ${LC}
     )
+    target_link_libraries(${LC_EXEC} -lpthread)
 endforeach(LC IN ${LEETCODE_LIST})
 
