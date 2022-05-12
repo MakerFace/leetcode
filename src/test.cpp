@@ -1,5 +1,8 @@
 #include <iostream>
 #include <iomanip>
+#include <stack>
+#include <climits>
+#include <cfloat>
 
 using namespace std;
 
@@ -64,6 +67,50 @@ struct alignas(16) foo_n
     char c;
 };
 
+class Base
+{
+public:
+    Base() {}
+    virtual int get(int x = 2) = 0;
+};
+
+class Test : public Base
+{
+private:
+    int x;
+    int y;
+
+public:
+    Test() {}
+    Test(int _x) : y(x), x(10) {}
+    explicit operator int() { return 1; }
+    virtual int get(int x = 3) { return x; } // 默认参数无效，使用的仍是父类的默认参数（缺省参数静态绑定导致）
+};
+__attribute__((constructor)) void before()
+{
+    printf("before main\n");
+}
+
+int before(int x)
+{
+    printf("before main %d\n", x, 3);
+    return x;
+}
+int a = before(2);
+int b = []() -> int
+{
+    std::cout << "before main 3\n"
+              << std::endl;
+    return 3;
+}();
+
+__attribute__((destructor)) void after()
+{
+    printf("after main\n");
+}
+constexpr int getFive() { return 5; }
+const int getFive(int x) { return x; }
+
 int main(int argc, char const *argv[])
 {
     std::cout << sizeof(s) << std::endl;
@@ -76,5 +123,10 @@ int main(int argc, char const *argv[])
     std::cout << hex << (void *)(&t.c) << std::endl;
 
     cout << fixed << setprecision(2) << 2.5555 << endl;
+    Test *p = new Test();
+    std::cout << dec << p->get() << std::endl;
+    cout << typeid(decltype((t))).name() << endl;
+    cout << typeid(decltype(t)).name() << endl;
+    cout << typeid(decltype((getFive()))).name() << endl;
     return 0;
 }
