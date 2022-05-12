@@ -12,5 +12,5 @@ inline void print_vector(std::vector<T> v)
     {
         std::cout << "," << v[i];
     }
-    std::cout << "]";
+    std::cout << "]\n";
 }
