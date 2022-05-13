@@ -16,7 +16,7 @@ class Solution {
       auto iter = map.find(nums[i]);
       if (iter == map.end()) {
         map.insert(make_pair(nums[i], i));
-      } else if (i - iter->second <= k) {
+      } else if ((int)i - iter->second <= k) {
         return true;
       } else {
         iter->second = i;

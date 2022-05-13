@@ -7,39 +7,33 @@
  */
 
 #include <iostream>
-#include <vector>
 #include <queue>
+#include <vector>
 
 using namespace std;
 
-class Solution
-{
-public:
-    int maximumRequests(int n, vector<vector<int>> &requests)
-    {
-        queue<int> requeue;
-        requeue.push(0);
-        while (not requeue.empty() or not requests.empty())
-        {
-            
-        }
-
-        return 1;
+class Solution {
+ public:
+  int maximumRequests(int n, vector<vector<int>> &requests) {
+    queue<int> requeue;
+    requeue.push(0);
+    while (not requeue.empty() or not requests.empty()) {
     }
+
+    return 1;
+  }
 };
 
-int main()
-{
-    Solution s;
-    int n;
-    int r, t;
-    cin >> n;
-    vector<vector<int>> req;
-    for (size_t i = 0; i < n; i++)
-    {
-        cin >> r >> t;
-        req.push_back({r, t});
-    }
-    auto res = s.maximumRequests(n, req);
-    std::cout << res << std::endl;
+int main() {
+  Solution s;
+  size_t n;
+  int r, t;
+  cin >> n;
+  vector<vector<int>> req;
+  for (size_t i = 0; i < n; i++) {
+    cin >> r >> t;
+    req.push_back({r, t});
+  }
+  auto res = s.maximumRequests(n, req);
+  std::cout << res << std::endl;
 }

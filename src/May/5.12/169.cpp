@@ -21,7 +21,7 @@ class Solution {
   int majorityElement(vector<int>& nums) {
     int count = 0;
     int candidate;
-    for (int i = 0; i < nums.size(); ++i) {
+    for (size_t i = 0; i < nums.size(); ++i) {
       if (not count) candidate = nums[i];
       if (candidate == nums[i])
         ++count;

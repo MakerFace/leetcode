@@ -16,41 +16,37 @@ class Solution {
   vector<vector<int>> pathSum(TreeNode* root, int targetSum) {
     vector<vector<int>> result;
     if (not root) return result;
-    stack<pair<TreeNode*, int>> s;
+    // stack<pair<TreeNode*, int>> s;
+    list<pair<TreeNode*, int>> temp;
     int sum = 0;
-    s.push(make_pair(root, 0));
+    temp.push_back(make_pair(root, 0));
     sum += root->val;
-    while (not s.empty()) {
-      auto& top = s.top();
+    while (not temp.empty()) {
+      auto& top = temp.back();
       if (top.second == 0) {
         if (top.first->left) {
-          s.push(make_pair(top.first->left, 0));
+          temp.push_back(make_pair(top.first->left, 0));
           sum += top.first->left->val;
         }
         top.second++;
       } else if (top.second == 1) {
         if (top.first->right) {
-          s.push(make_pair(top.first->right, 0));
+          temp.push_back(make_pair(top.first->right, 0));
           sum += top.first->right->val;
         }
         top.second++;
       } else {
         if (not top.first->left and not top.first->right and sum == targetSum) {
-          vector<int> temp;
-          stack<pair<TreeNode*, int>> s_r;
-          while (not s.empty()) {
-            s_r.push(s.top());
-            s.pop();
+          vector<int> tmp(temp.size());
+          auto ptr = temp.begin();
+          for (size_t i = 0; i < temp.size(); i++) {
+            tmp[i] = (ptr++)->first->val;
           }
-          while (not s_r.empty()) {
-            s.push(s_r.top());
-            temp.emplace_back(s_r.top().first->val);
-            s_r.pop();
-          }
-          result.push_back(temp);
+          result.push_back(tmp);
         }
-        s.pop();
+        // 不能交换下面两句话，使用后再pop，否则会被析构掉！
         sum -= top.first->val;
+        temp.pop_back();
       }
     }
     return result;

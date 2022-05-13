@@ -40,3 +40,5 @@ Node* matrix2graph(const Matrix<int>& mat) {
   }
   return vertex[0];
 }
+
+void print_graph(Node* node) {}

@@ -32,7 +32,7 @@ public:
      */
     int mySqrt(int x)
     {
-        
+        return -1;
     }
 };
 

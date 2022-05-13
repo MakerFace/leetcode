@@ -16,7 +16,6 @@ public:
     {
         TreeNode *res = root;
         TreeNode *new_root = nullptr;
-        TreeNode *_res;
 
         new_root = changeLeft(res);
         while (res->right != nullptr)

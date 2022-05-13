@@ -23,6 +23,7 @@ class Solution {
       }
       if (p == q) return true;
     }
+    return false;
   }
 };
 

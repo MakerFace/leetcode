@@ -6,38 +6,33 @@
  * @date 2022-05-07
  */
 #include <bits/stdc++.h>
+
 #include "common/Matrix.hpp"
 using namespace std;
 
-class Solution
-{
-public:
-    vector<vector<string>> solveNQueens(int n)
-    {
-        vector<vector<string>> result;
-        for (int i = 0; i < n - 1; ++i)
-        {
-            vector<string> temp(n, string(n, '.'));
-            temp[0][i] = 'Q';
-            if (create_board(n, temp))
-            {
-                result.emplace_back(temp);
-            }
-        }
+class Solution {
+ public:
+  vector<vector<string>> solveNQueens(int n) {
+    vector<vector<string>> result;
+    for (int i = 0; i < n - 1; ++i) {
+      vector<string> temp(n, string(n, '.'));
+      temp[0][i] = 'Q';
+      if (create_board(n, temp)) {
+        result.emplace_back(temp);
+      }
     }
+    return result;
+  }
 
-private:
-    bool create_board(int n, vector<string> &board)
-    {
-        for (int i = 1; i < n; ++i)
-        {
-            
-        }
+ private:
+  bool create_board(int n, vector<string> &board) {
+    for (int i = 1; i < n; ++i) {
     }
+    return false;
+  }
 };
 
-int main(int argc, char const *argv[])
-{
-    /* code */
-    return 0;
+int main(int argc, char const *argv[]) {
+  /* code */
+  return 0;
 }

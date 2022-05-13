@@ -12,19 +12,11 @@ using namespace std;
 
 /**
  * @brief 5次操作之后会周期重复
- * 
+ *
  */
-class Solution
-{
-public:
-    int flipLights(int n, int presses)
-    {
-        
-    }
+class Solution {
+ public:
+  int flipLights(int n, int presses) { return -1; }
 };
 
-int main(int argc, char const *argv[])
-{
-    
-    return 0;
-}
+int main(int argc, char const *argv[]) { return 0; }

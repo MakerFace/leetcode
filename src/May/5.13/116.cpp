@@ -22,6 +22,7 @@ struct Node {
 class Solution {
  public:
   Node *connect(Node *root) {
+    if (!root) return nullptr;
     queue<Node *> q;
     q.push(root);
     while (not q.empty()) {

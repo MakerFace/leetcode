@@ -22,7 +22,6 @@ public:
         vector<int> res;
         stack<int> sta;
         res.resize(temperatures.size());
-        int top = 0;
         for (size_t i = 0; i < temperatures.size(); ++i)
         {
             while (!sta.empty() && temperatures[i] > temperatures[sta.top()]) // cur > stack.top

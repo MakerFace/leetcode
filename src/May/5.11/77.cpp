@@ -15,14 +15,14 @@ class Solution {
   vector<vector<int>> combine(int n, int k) {
     vector<int> s(k);
     vector<vector<int>> result(c(n, k));
-    int top = k - 1;
-    int j = k;
+    // size_t top = k - 1;
+    // size_t j = k;
     for (int i = 1; i <= k; ++i) s[i - 1] = i;
 
-    for (int cur = 0; cur < result.size(); ++cur) {
+    for (size_t cur = 0; cur < result.size(); ++cur) {
       result[cur] = s;
       if (s[k - 1] >= n) {
-        for (int i = k - 1; i > 0; --i) {
+        for (size_t i = k - 1; i > 0; --i) {
           if (s[i] - s[i - 1] > 1) {
             s[i - 1]++;
             for (int j = i; j < k; ++j) {

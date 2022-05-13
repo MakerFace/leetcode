@@ -8,40 +8,30 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Solution
-{
-    vector<int> nums;
-    default_random_engine e;
-    unordered_map<int, vector<int>> map;
+class Solution {
+  vector<int> nums;
+  default_random_engine e;
+  unordered_map<int, vector<int>> map;
 
-public:
-    Solution(vector<int> &nums) : nums(nums)
-    {
-    }
+ public:
+  Solution(vector<int> &nums) : nums(nums) {}
 
-    int pick(int target)
-    {
-        int start = 0, end = nums.size() - 1;
-        auto iter = map.find(target);
-        if (iter == map.end())
-        {
-            for (int i = 0; i < nums.size(); ++i)
-            {
-                iter = map.find(nums[i]);
-                if (iter == map.end())
-                {
-                    map.insert(make_pair(nums[i], vector<int>({i})));
-                }
-                else
-                {
-                    iter->second.push_back(i);
-                }
-            }
+  int pick(int target) {
+    auto iter = map.find(target);
+    if (iter == map.end()) {
+      for (size_t i = 0; i < nums.size(); ++i) {
+        iter = map.find(nums[i]);
+        if (iter == map.end()) {
+          map.insert(make_pair(nums[i], vector<int>({(int)i})));
+        } else {
+          iter->second.push_back((int)i);
         }
-
-        iter = map.find(target);
-        return iter->second[e() % (iter->second.size())];
+      }
     }
+
+    iter = map.find(target);
+    return iter->second[e() % (iter->second.size())];
+  }
 };
 
 /**
@@ -50,23 +40,22 @@ public:
  * int param_1 = obj->pick(target);
  */
 
-int main(int argc, char const *argv[])
-{
-    vector<int> nums = {1, 2, 3, 3, 3};
-    Solution ans(nums);
-    std::cout << ans.pick(3) << std::endl;
-    std::cout << ans.pick(3) << std::endl;
-    std::cout << ans.pick(3) << std::endl;
-    std::cout << ans.pick(3) << std::endl;
-    std::cout << ans.pick(3) << std::endl;
-    std::cout << ans.pick(3) << std::endl;
-    std::cout << ans.pick(3) << std::endl;
-    std::cout << ans.pick(3) << std::endl;
-    std::cout << ans.pick(3) << std::endl;
-    std::cout << ans.pick(3) << std::endl;
-    std::cout << ans.pick(3) << std::endl;
-    std::cout << ans.pick(3) << std::endl;
-    std::cout << ans.pick(3) << std::endl;
-    std::cout << ans.pick(3) << std::endl;
-    return 0;
+int main(int argc, char const *argv[]) {
+  vector<int> nums = {1, 2, 3, 3, 3};
+  Solution ans(nums);
+  std::cout << ans.pick(3) << std::endl;
+  std::cout << ans.pick(3) << std::endl;
+  std::cout << ans.pick(3) << std::endl;
+  std::cout << ans.pick(3) << std::endl;
+  std::cout << ans.pick(3) << std::endl;
+  std::cout << ans.pick(3) << std::endl;
+  std::cout << ans.pick(3) << std::endl;
+  std::cout << ans.pick(3) << std::endl;
+  std::cout << ans.pick(3) << std::endl;
+  std::cout << ans.pick(3) << std::endl;
+  std::cout << ans.pick(3) << std::endl;
+  std::cout << ans.pick(3) << std::endl;
+  std::cout << ans.pick(3) << std::endl;
+  std::cout << ans.pick(3) << std::endl;
+  return 0;
 }

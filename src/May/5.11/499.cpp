@@ -54,7 +54,7 @@ class Codec {
         v.erase(i);
       }
       result += to_string(v[0]);
-      for (int i = 1; i < v.size(); ++i) {
+      for (size_t i = 1; i < v.size(); ++i) {
         if (v[i] == -1)
           result += ",null";
         else
@@ -74,8 +74,8 @@ class Codec {
     TreeNode *root = nullptr;
     std::queue<TreeNode *> q;
     int count = 0;
-    for (int i = 1; i < data.size() - 1; ++i) {
-      int j = i;
+    for (size_t i = 1; i < data.size() - 1; ++i) {
+      size_t j = i;
       while (j < data.size() - 1) {
         if (data[j] == ',' or data[j] == ']') break;
         ++j;

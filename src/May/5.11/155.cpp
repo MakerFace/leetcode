@@ -34,7 +34,7 @@ class MinStack {
 
  private:
   int find_value(int val) {
-    int i = 0, j = mins.size() - 1;
+    size_t i = 0, j = mins.size() - 1;
     while (i < j) {
       int mid = (i + j) / 2;
       if (mins[mid] == val) {

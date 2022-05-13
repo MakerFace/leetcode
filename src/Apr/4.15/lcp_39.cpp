@@ -15,10 +15,10 @@ public:
     int minimumSwitchingTimes(vector<vector<int>> &source, vector<vector<int>> &target)
     {
         list<int> s, t;
-        int n = source.size();
-        int m = source[0].size();
+        size_t n = source.size();
+        size_t m = source[0].size();
         int counter = 0;
-        bool stop = false;
+        // bool stop = false;
         for (size_t i = 0; i < n; ++i)
         {
             for (size_t j = 0; j < m; ++j)

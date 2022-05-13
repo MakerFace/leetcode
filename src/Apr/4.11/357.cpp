@@ -17,26 +17,24 @@ using namespace std;
  * F(n) = f(n) + f(n - 1)
  */
 class Solution {
-    int coefficient[9] = {9, 9, 8, 7, 6, 5, 4, 3, 2};
-public:
-    int countNumbersWithUniqueDigits(int n) {
-        if (n == 0)
-            return 1;
-        int m = 1;
-        for (size_t i = 0; i < n; i++)
-        {
-            m *= coefficient[i];
-        }
-        return countNumbersWithUniqueDigits(n-1) + m;
+  int coefficient[9] = {9, 9, 8, 7, 6, 5, 4, 3, 2};
+
+ public:
+  int countNumbersWithUniqueDigits(int n) {
+    if (n == 0) return 1;
+    int m = 1;
+    for (int i = 0; i < n; i++) {
+      m *= coefficient[i];
     }
+    return countNumbersWithUniqueDigits(n - 1) + m;
+  }
 };
 
-int main(int argc, char const *argv[])
-{
-    Solution s;
-    int n;
-    cin >> n;
-    auto res = s.countNumbersWithUniqueDigits(n);
-    std::cout << res << std::endl;
-    return 0;
+int main(int argc, char const *argv[]) {
+  Solution s;
+  int n;
+  cin >> n;
+  auto res = s.countNumbersWithUniqueDigits(n);
+  std::cout << res << std::endl;
+  return 0;
 }

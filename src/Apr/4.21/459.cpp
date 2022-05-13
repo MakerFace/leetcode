@@ -9,27 +9,22 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Solution
-{
-public:
-    bool repeatedSubstringPattern(string s)
-    {
-        int l = 1;
-        for (int i = l; i < s.size() && l < s.size(); i += l)
-        {
-            if (s.substr(0, l) != s.substr(i, l))
-            {
-                ++l;
-                i = 0;
-            }
-        }
-        return l != s.size();
+class Solution {
+ public:
+  bool repeatedSubstringPattern(string s) {
+    size_t l = 1;
+    for (size_t i = l; i < s.size() && l < s.size(); i += l) {
+      if (s.substr(0, l) != s.substr(i, l)) {
+        ++l;
+        i = 0;
+      }
     }
+    return l != s.size();
+  }
 };
 
-int main(int argc, char const *argv[])
-{
-    Solution s;
-    std::cout << boolalpha << s.repeatedSubstringPattern("aba") << std::endl;
-    return 0;
+int main(int argc, char const *argv[]) {
+  Solution s;
+  std::cout << boolalpha << s.repeatedSubstringPattern("aba") << std::endl;
+  return 0;
 }

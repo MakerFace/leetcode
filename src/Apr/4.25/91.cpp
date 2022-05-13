@@ -35,7 +35,7 @@ public:
             return 0;
         vector<int> dp(s.size() + 1);
         dp[0] = dp[1] = 1;
-        for (int i = 0; i < s.size(); ++i)
+        for (size_t i = 0; i < s.size(); ++i)
         {
             if ((i + 1 < s.size() && s[i + 1] == '0')) // 后一位为0，只能走两步，一种状态
             {

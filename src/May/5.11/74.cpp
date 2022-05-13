@@ -13,7 +13,6 @@ using namespace std;
 class Solution {
  public:
   bool searchMatrix(vector<vector<int>>& matrix, int target) {
-    bool result = false;
     int m = matrix.size();
     int n = matrix[0].size();
     // 纵向二分查找

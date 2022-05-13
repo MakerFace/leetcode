@@ -13,7 +13,7 @@ class Solution {
   string simplifyPath(string path) {
     vector<string> s;
     for (size_t i = 1; i < path.size(); i++) {
-      int j = i;
+      size_t j = i;
       while (j < path.size()) {
         if (path[j] == '/') break;
         ++j;
