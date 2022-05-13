@@ -71,7 +71,7 @@ int main(int argc, char const *argv[])
     std::cout << "[";
     for (auto var : res)
     {
-        print_vector(var);
+        println_vector(var);
         std::cout << ",";
     }
     cout << "\b]" << endl;

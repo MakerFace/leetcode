@@ -59,7 +59,7 @@ int main(int argc, char const *argv[])
     std::cout << "[";
     for (auto r : res)
     {
-        print_vector(r);
+        println_vector(r);
         std::cout << ",";
     }
     std::cout << "\b]" << std::endl;

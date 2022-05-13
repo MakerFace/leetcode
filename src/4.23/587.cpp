@@ -89,7 +89,7 @@ int main(int argc, char const *argv[])
     auto res = s.outerTrees(trees);
     for (auto var : res)
     {
-        print_vector(var);
+        println_vector(var);
     }
 
     return 0;

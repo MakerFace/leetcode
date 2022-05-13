@@ -12,17 +12,18 @@ struct TreeNode {
       : val(x), left(left), right(right) {}
 };
 
-TreeNode *list2tree(std::initializer_list<int> l) {
-  TreeNode *root = nullptr;
-  std::queue<TreeNode *> q;
+template <class Node = TreeNode>
+Node *list2tree(std::initializer_list<int> l) {
+  Node *root = nullptr;
+  std::queue<Node *> q;
   int count = 0;
   for (auto &i : l) {
     if (!root) {
-      root = new TreeNode(i);
+      root = new Node(i);
       q.push(root);
     } else {
-      TreeNode *p = nullptr;
-      if (i != -1) p = new TreeNode(i);
+      Node *p = nullptr;
+      if (i != -1) p = new Node(i);
       if (count == 0) {
         q.front()->left = p;
       } else if (count == 1) {
@@ -39,9 +40,10 @@ TreeNode *list2tree(std::initializer_list<int> l) {
   return root;
 }
 
-TreeNode *string2tree(std::string data) {
-  TreeNode *root = nullptr;
-  std::queue<TreeNode *> q;
+template <class Node = TreeNode>
+Node *string2tree(std::string data) {
+  Node *root = nullptr;
+  std::queue<Node *> q;
   int count = 0;
   for (int i = 1; i < data.size() - 1; ++i) {
     int j = i;
@@ -60,13 +62,13 @@ TreeNode *string2tree(std::string data) {
     i = j;
     if (!root) {
       if (std::get<1>(node)) {
-        root = new TreeNode(std::get<0>(node));
+        root = new Node(std::get<0>(node));
         q.push(root);
       }
     } else {
-      TreeNode *p = nullptr;
+      Node *p = nullptr;
       if (std::get<1>(node)) {
-        p = new TreeNode(std::get<0>(node));
+        p = new Node(std::get<0>(node));
       }
       if (count == 0) {
         q.front()->left = p;
@@ -84,9 +86,10 @@ TreeNode *string2tree(std::string data) {
   return root;
 }
 
-void print_tree(TreeNode *root) {
-  TreeNode *null_node = new TreeNode(-1);
-  std::queue<TreeNode *> queue;
+template <class Node = TreeNode>
+void print_tree(Node *root) {
+  Node *null_node = new Node(-1);
+  std::queue<Node *> queue;
   std::vector<int> v;
   queue.push(root);
   int curChild = 1;
@@ -94,7 +97,7 @@ void print_tree(TreeNode *root) {
   while (!queue.empty()) {
     nextChild = 0;
     for (int i = 0; i < curChild; ++i) {
-      TreeNode *temp = queue.front();
+      Node *temp = queue.front();
       queue.pop();
       if (!temp) break;
       if (temp->val == -1) {
@@ -133,5 +136,11 @@ void print_tree(TreeNode *root) {
         std::cout << "," << v[i];
     }
   }
-  std::cout << "]\n";
+  std::cout << "]";
+}
+
+template <class Node = TreeNode>
+void println_tree(Node *root) {
+  print_tree<Node>(root);
+  std::cout << std::endl;
 }

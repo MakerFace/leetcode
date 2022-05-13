@@ -52,7 +52,7 @@ int main(int argc, char const *argv[])
     auto res = s.levelOrder(root);
     for (auto r : res)
     {
-        print_vector(r);
+        println_vector(r);
     }
     return 0;
 }

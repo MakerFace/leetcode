@@ -124,7 +124,7 @@ int main(int argc, char const *argv[]) {
   auto res = codec.serialize(root);
   std::cout << res << std::endl;
   auto res2 = codec.deserialize("[]");
-  print_tree(res2);
+  println_tree(res2);
   std::cout << std::endl;
   return 0;
 }

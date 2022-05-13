@@ -36,7 +36,7 @@ int main(int argc, char const *argv[])
     while (cin >> candies >> num_people)
     {
         auto res = ans.distributeCandies(candies, num_people);
-        print_vector(res);
+        println_vector(res);
         std::cout << std::endl;
     }
     return 0;

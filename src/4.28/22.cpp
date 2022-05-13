@@ -42,7 +42,7 @@ int main(int argc, char const *argv[])
     while (cin >> n)
     {
         auto res = ans.generateParenthesis(n);
-        print_vector(res);
+        println_vector(res);
     }
     return 0;
 }

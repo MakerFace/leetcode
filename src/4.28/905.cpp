@@ -41,7 +41,7 @@ int main(int argc, char const *argv[])
     Solution ans;
     vector<int> nums = {0, 2, 1, 4};
     auto res = ans.sortArrayByParity(nums);
-    print_vector(res);
+    println_vector(res);
     std::cout << std::endl;
     return 0;
 }

@@ -55,7 +55,7 @@ int main(int argc, char const *argv[])
     Solution ans;
     TreeNode *root = list2tree({2, null, 3, null, 1});
     auto res = ans.postorderTraversal(root);
-    print_vector(res);
+    println_vector(res);
     std::cout << std::endl;
     return 0;
 }

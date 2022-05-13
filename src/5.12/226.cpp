@@ -26,6 +26,6 @@ int main(int argc, char const* argv[]) {
   auto root = list2tree({4, 2, 7, 1, 3, 6, 9});
   Solution ans;
   auto res = ans.invertTree(root);
-  print_tree(res);
+  println_tree(res);
   return 0;
 }

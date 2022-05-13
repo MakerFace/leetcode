@@ -40,6 +40,6 @@ int main(int argc, char const *argv[])
 {
     Solution s;
     vector<int> digits = {9, 9, 9, 9};
-    print_vector(s.plusOne(digits));
+    println_vector(s.plusOne(digits));
     return 0;
 }

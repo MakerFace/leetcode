@@ -36,6 +36,6 @@ int main(int argc, char const* argv[]) {
   Solution ans;
   vector<int> nums{-2147483648, -2147483647, 2147483647};
   auto res = ans.summaryRanges(nums);
-  print_vector(res);
+  println_vector(res);
   return 0;
 }

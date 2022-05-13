@@ -51,6 +51,6 @@ int main(int argc, char const *argv[])
     Solution ans;
     Matrix<int> matrix = {{7}, {9}, {6}};
     auto res = ans.spiralOrder(matrix);
-    print_vector(res);
+    println_vector(res);
     return 0;
 }

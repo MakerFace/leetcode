@@ -44,7 +44,7 @@ int main(int argc, char const *argv[])
     auto res = s.minimumAbsDifference(arr);
     for (auto r : res)
     {
-        print_vector(r);
+        println_vector(r);
     }
     return 0;
 }

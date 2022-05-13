@@ -125,7 +125,7 @@ int main(int argc, char const *argv[])
         auto res = ans.generateTrees(n);
         for (auto r : res)
         {
-            print_tree(r);
+            println_tree(r);
         }
     }
     return 0;

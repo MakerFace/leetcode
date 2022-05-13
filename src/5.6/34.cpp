@@ -61,7 +61,7 @@ int main(int argc, char const *argv[])
     int target;
     while (cin >> target)
     {
-        print_vector(ans.searchRange(nums, target));
+        println_vector(ans.searchRange(nums, target));
         std::cout << std::endl;
     }
     return 0;

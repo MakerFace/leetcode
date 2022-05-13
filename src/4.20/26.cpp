@@ -35,6 +35,6 @@ int main(int argc, char const *argv[])
     vector<int> nums = {1};
     auto res = s.removeDuplicates(nums);
     nums.resize(res);
-    print_vector(nums);
+    println_vector(nums);
     return 0;
 }

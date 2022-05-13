@@ -41,6 +41,6 @@ int main(int argc, char const *argv[])
 {
     Solution s;
     auto res = s.lexicalOrder(1000);
-    print_vector(res);
+    println_vector(res);
     return 0;
 }

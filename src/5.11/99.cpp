@@ -69,7 +69,7 @@ int main(int argc, char const* argv[]) {
   while (cin >> str) {
     auto root = string2tree(str);
     ans.recoverTree(root);
-    print_tree(root);
+    println_tree(root);
   }
   return 0;
 }

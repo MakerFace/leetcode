@@ -41,6 +41,6 @@ int main(int argc, char const *argv[])
     int m = 3, n = 3;
     Solution ans;
     ans.merge(nums1, m, nums2, n);
-    print_vector(nums1);
+    println_vector(nums1);
     return 0;
 }

@@ -37,6 +37,6 @@ int main(int argc, char const *argv[])
     vector<int> nums = {0, 1, 2, 2, 3, 0, 4, 2};
     int val = 2;
     std::cout << s.removeElement(nums, val) << std::endl;
-    print_vector(nums);
+    println_vector(nums);
     return 0;
 }

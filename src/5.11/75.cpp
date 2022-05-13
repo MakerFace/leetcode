@@ -40,6 +40,6 @@ int main(int argc, char const* argv[]) {
   Solution ans;
   vector<int> nums{2, 0, 2, 1, 1, 0};
   ans.sortColors(nums);
-  print_vector(nums);
+  println_vector(nums);
   return 0;
 }

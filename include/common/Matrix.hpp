@@ -14,5 +14,11 @@ void print_matrix(const Matrix<T> &matrix) {
     std::cout << ",";
   }
   if (not matrix.empty()) std::cout << "\b";
-  std::cout << "]\n";
+  std::cout << "]";
+}
+
+template <typename T>
+void println_matrix(const Matrix<T> &matrix) {
+  print_matrix(matrix);
+  std::cout << std::endl;
 }

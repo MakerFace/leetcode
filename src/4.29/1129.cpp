@@ -35,7 +35,7 @@ int main(int argc, char const *argv[])
     Solution ans;
     vector<int> arr = {17, 18, 5, 4, 6, 1};
     auto res = ans.replaceElements(arr);
-    print_vector(res);
+    println_vector(res);
     std::cout << std::endl;
     return 0;
 }

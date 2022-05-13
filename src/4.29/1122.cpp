@@ -39,7 +39,7 @@ int main(int argc, char const *argv[])
     vector<int> arr1 = {28, 6, 22, 8, 44, 17};
     vector<int> arr2 = {22, 28, 8, 6};
     auto res = ans.relativeSortArray(arr1, arr2);
-    print_vector(res);
+    println_vector(res);
     std::cout << std::endl;
     return 0;
 }

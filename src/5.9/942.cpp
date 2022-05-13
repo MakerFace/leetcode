@@ -40,6 +40,6 @@ int main(int argc, char const *argv[])
     Solution ans;
     string s;
     while (cin >> s)
-        print_vector(ans.diStringMatch(s));
+        println_vector(ans.diStringMatch(s));
     return 0;
 }

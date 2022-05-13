@@ -60,7 +60,7 @@ int main(int argc, char const *argv[])
     int n;
     while (cin >> n)
     {
-        print_vector(ans.readBinaryWatch(n));
+        println_vector(ans.readBinaryWatch(n));
         std::cout << std::endl;
     }
     return 0;

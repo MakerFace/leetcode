@@ -52,6 +52,6 @@ int main(int argc, char const *argv[])
     Solution ans;
     auto root = list2tree({1});
     auto res = ans.inorderTraversal(root);
-    print_vector(res);
+    println_vector(res);
     return 0;
 }

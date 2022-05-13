@@ -31,6 +31,6 @@ int main(int argc, char const* argv[]) {
   auto root = list2tree({1, 2, 3});
   Solution ans;
   auto res = ans.preorderTraversal(root);
-  print_vector(res);
+  println_vector(res);
   return 0;
 }

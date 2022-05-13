@@ -46,7 +46,7 @@ int main(int argc, char const *argv[])
     vector<int> nums = {6, 4, 3, 5, 2, 1};
     Solution ans;
     ans.nextPermutation(nums);
-    print_vector(nums);
+    println_vector(nums);
     std::cout << std::endl;
     return 0;
 }

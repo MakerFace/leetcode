@@ -54,7 +54,7 @@ int main(int argc, char const *argv[])
     auto res = s.threeSum(nums);
     for (auto r : res)
     {
-        print_vector(r);
+        println_vector(r);
     }
     return 0;
 }
