@@ -6,7 +6,7 @@ if(NOT CMAKE_BUILD_TYPE)
 endif()
 
 set(std=c++11)
-add_compile_options(-Wall -Werror -fsanitize=address)
+add_compile_options(-Wall -Werror -fsanitize=address -Wno-unused-function -Wno-unused-variable)
 
 # include_directories(include)
 
