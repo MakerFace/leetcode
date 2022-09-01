@@ -32,3 +32,9 @@ void my_next_permutation(Iterator first, Iterator end) {
     }
   }
 }
+
+int main(int argc, char const *argv[])
+{
+  /* code */
+  return 0;
+}

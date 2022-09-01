@@ -3,6 +3,7 @@
 #include <iomanip>
 #include <iostream>
 #include <stack>
+#include <vector>
 
 using namespace std;
 
@@ -85,7 +86,7 @@ int before(int x) {
 }
 int a = before(2);
 int b = []() -> int {
-  std::cout << "before main 3\n" << std::endl;
+  std::cout << "before main 3\n";
   return 3;
 }();
 
@@ -94,20 +95,7 @@ constexpr int getFive() { return 5; }
 const int getFive(int x) { return x; }
 
 int main(int argc, char const *argv[]) {
-  std::cout << sizeof(s) << std::endl;
-  s t;
-  t.a = 1;
-  t.b = 2;
-  t.c = 3;
-  std::cout << hex << (void *)(&t.a) << std::endl;
-  std::cout << hex << (void *)(&t.b) << std::endl;
-  std::cout << hex << (void *)(&t.c) << std::endl;
-
-  cout << fixed << setprecision(2) << 2.5555 << endl;
-  Test *p = new Test();
-  std::cout << dec << p->get() << std::endl;
-  cout << typeid(decltype((t))).name() << endl;
-  cout << typeid(decltype(t)).name() << endl;
-  cout << typeid(decltype((getFive()))).name() << endl;
+  std::vector<int> test;
+  cout << test.size() << endl;
   return 0;
 }
