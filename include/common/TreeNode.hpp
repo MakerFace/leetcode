@@ -87,7 +87,12 @@ Node *string2tree(std::string data) {
 }
 
 template <class Node = TreeNode>
-void print_tree(Node *root) {
+void delete_tree(Node *root) {
+  print_tree(root, true);
+}
+
+template <class Node = TreeNode>
+void print_tree(Node *root, bool del_tree = false) {
   Node *null_node = new Node(-1);
   std::queue<Node *> queue;
   std::vector<int> v;
@@ -101,10 +106,8 @@ void print_tree(Node *root) {
       queue.pop();
       if (!temp) break;
       if (temp->val == -1) {
-        // std::cout << "null,";
         v.push_back(-1);
       } else {
-        // std::cout << temp->val << ",";
         v.push_back(temp->val);
         if (temp->left != nullptr) {
           queue.push(temp->left);
@@ -119,24 +122,31 @@ void print_tree(Node *root) {
         }
         ++nextChild;
       }
+      if (del_tree) {
+        if (temp != null_node) delete temp;
+      }
     }
     curChild = nextChild;
   }
-  std::cout << "[";
-  if (!v.empty()) {
-    for (auto i = v.end() - 1; i != v.begin() && *i == -1; --i) {
-      v.erase(i);
+  delete null_node;
+  if (not del_tree) {
+    std::cout << "[";
+    if (!v.empty()) {
+      for (auto i = v.end() - 1; i != v.begin() && *i == -1; --i) {
+        v.erase(i);
+      }
+      if (not v.empty()) {
+        std::cout << v[0];
+      }
+      for (size_t i = 1; i < v.size(); ++i) {
+        if (v[i] == -1)
+          std::cout << ",null";
+        else
+          std::cout << "," << v[i];
+      }
     }
-    delete null_node;
-    std::cout << v[0];
-    for (size_t i = 1; i < v.size(); ++i) {
-      if (v[i] == -1)
-        std::cout << ",null";
-      else
-        std::cout << "," << v[i];
-    }
+    std::cout << "]";
   }
-  std::cout << "]";
 }
 
 template <class Node = TreeNode>
