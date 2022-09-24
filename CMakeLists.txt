@@ -8,14 +8,17 @@ endif()
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS ON)
+set(CMAKE_CXX_COMPILER clang++)
 add_compile_options(-Wall -Werror -fsanitize=address -Wno-unused-function -Wno-unused-variable -Wno-unused-private-field)
+
+set(BUILD_DES_SRC "src/" CACHE PATH "source file directory to compile")
 
 # include_directories(include)
 
 ##############
 ##   Build  ##
 ##############
-file(GLOB_RECURSE LEETCODE_LIST src/*.cpp)
+file(GLOB_RECURSE LEETCODE_LIST ${BUILD_DES_SRC}/*.cpp)
 include_directories(include)
 
 foreach(LC IN LISTS LEETCODE_LIST)
