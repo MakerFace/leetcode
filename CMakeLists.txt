@@ -5,7 +5,9 @@ if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Debug)    
 endif()
 
-set(std=c++11)
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS ON)
 add_compile_options(-Wall -Werror -fsanitize=address -Wno-unused-function -Wno-unused-variable -Wno-unused-private-field)
 
 # include_directories(include)
