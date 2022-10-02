@@ -59,5 +59,17 @@ int main(int argc, char const* argv[]) {
   f(t1);
   f(t2);
   std::cout << toUType(Color::white) << std::endl;
+  priority_queue<int, vector<int>> q;
+  vector<int> values(10, 0);
+  iota(values.begin(), values.end(), 0);
+  for (auto& v : values) {
+    q.push(v);
+  }
+  while (not q.empty())
+  {
+    std::cout << q.top() << std::endl;
+    q.pop();
+  }
+  
   return 0;
 }
