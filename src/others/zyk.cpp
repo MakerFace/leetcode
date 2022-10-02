@@ -6,17 +6,17 @@
  * @date 2022-04-28
  */
 #include <bits/stdc++.h>
+
+#include <common/utils.hpp>
 using namespace std;
 
 bool compare(int x, int y) { return x <= y; }
 int main() {
-  vector<int> nums = {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
-                      2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2};
-  auto compare = [](int x, int y) { return (x < y); };
-  // sort(nums.begin(), nums.end(), compare);
-  sort(nums.begin(), nums.end(), compare);
-  for (size_t i = 0; i < nums.size(); ++i) {
-    std::cout << nums[i] << " ";
+  int n, m;
+  cin >> n >> m;
+  vector<array<int, 2>> nums(n, array<int, 2>());
+  for (int i = 0; i < n; ++i) {
+    cin >> nums[i][0] >> nums[i][1];
   }
-  std::cout << std::endl;
+  return 0;
 }

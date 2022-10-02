@@ -1,10 +1,15 @@
+#include <algorithm>
 #include <cfloat>
+#include <chrono>
 #include <climits>
 #include <iomanip>
 #include <iostream>
+#include <map>
+#include <numeric>
 #include <stack>
 #include <vector>
 
+#include "common/utils.hpp"
 using namespace std;
 
 class test {
@@ -125,8 +130,59 @@ __attribute__((destructor)) void after() { printf("after main\n"); }
 constexpr int getFive() { return 5; }
 const int getFive(int x) { return x; }
 
+template <class PQ>
+class Extractable : public PQ {
+ public:
+  using PQ::PQ;
+  using typename PQ::container_type;
+  container_type &&container() && { return std::move(this->c); }
+  const container_type &container() const & { return this->c; }
+  container_type &container() & { return this->c; }
+
+  container_type sorted_container() && {
+    std::sort_heap(this->c.begin(), this->c.end(), this->comp);
+    return std::move(this->c);
+  }
+};
+
 int main(int argc, char const *argv[]) {
-  std::vector<int> test;
-  cout << test.size() << endl;
+  //   vector<int> heap;
+  //   // priority_queue<int> pq;
+  // Extractable<std::priority_queue<int, std::vector<int>, std::greater<int>>>
+  // pq; default_random_engine default_random; for (int i = 0; i < 10; i++) {
+  //   heap.push_back(default_random() % 100);
+  //   pq.emplace(heap.back());
+  // }
+
+  // heap = std::move(pq).sorted_container();
+  //   println_vector(heap);
+  //   return 0;
+  int n = 16;
+  cin >> n;
+  vector<int> nums(n);
+  default_random_engine dre(time(0));
+  generate(nums.begin(), nums.end(), [&]() { return n--; });
+  println_vector(nums);
+
+  auto len = static_cast<int>(nums.size());
+
+  auto begin = nums.begin();
+  auto middle = begin, end = begin;
+  for (int n = 2; n <= len; n *= 2) {
+    begin = nums.begin();
+    middle = begin + n / 2;
+    end = begin + n;
+    while (end <= nums.end()) {
+      inplace_merge(begin, middle, end);
+      begin = end;
+      middle = begin + n / 2;
+      end = begin + n;
+    }
+  }
+  if (begin < nums.end()) {
+    inplace_merge(nums.begin(), begin, nums.end());
+  }
+
+  println_vector(nums);
   return 0;
 }
