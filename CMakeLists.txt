@@ -8,10 +8,11 @@ endif()
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS ON)
-set(CMAKE_CXX_COMPILER clang++)
 add_compile_options(-Wall -Werror -fsanitize=address -Wno-unused-function -Wno-unused-variable -Wno-unused-private-field)
 
 set(BUILD_DES_SRC "src/" CACHE PATH "source file directory to compile")
+
+add_definitions(-DPROJECT_PATH="${PROJECT_SOURCE_DIR}")
 
 # include_directories(include)
 
