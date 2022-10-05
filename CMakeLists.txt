@@ -12,6 +12,8 @@ add_compile_options(-Wall -Werror -fsanitize=address -Wno-unused-function -Wno-u
 
 set(BUILD_DES_SRC "src/" CACHE PATH "source file directory to compile")
 
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin")
+
 add_definitions(-DPROJECT_PATH="${PROJECT_SOURCE_DIR}")
 
 # include_directories(include)
