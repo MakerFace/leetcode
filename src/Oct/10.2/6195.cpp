@@ -22,6 +22,7 @@ class Solution {
         len = 0;
       }
     }
+    return 0;
   }
 };
 
