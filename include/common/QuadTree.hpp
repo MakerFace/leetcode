@@ -1,4 +1,6 @@
-#pragma once
+#ifndef QUADTREE_HPP
+#define QUADTREE_HPP
+
 // Definition for a QuadTree node.
 class Node {
  public:
@@ -39,3 +41,5 @@ class Node {
 };
 
 void print_quad_tree(const Node *node) {}
+
+#endif // QUADTREE_HPP

@@ -1,4 +1,6 @@
-#pragma once
+#ifndef NODE_HPP
+#define NODE_HPP
+
 #include <vector>
 #include <queue>
 #include <initializer_list>
@@ -56,3 +58,5 @@ Node *list2Tree(std::initializer_list<int> l)
     }
     return head;
 }
+
+#endif // NODE_HPP

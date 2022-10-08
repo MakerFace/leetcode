@@ -1,4 +1,6 @@
-#pragma once
+#ifndef GRAPHNODE_HPP
+#define GRAPHNODE_HPP
+
 #include <vector>
 
 #include "common/Matrix.hpp"
@@ -42,3 +44,5 @@ Node* matrix2graph(const Matrix<int>& mat) {
 }
 
 void print_graph(Node* node) {}
+
+#endif // GRAPHNODE_HPP

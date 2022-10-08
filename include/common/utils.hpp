@@ -1,4 +1,6 @@
-#pragma once
+#ifndef UTILS_HPP
+#define UTILS_HPP
+
 #include <bits/stdc++.h>
 
 template <typename T>
@@ -17,3 +19,5 @@ inline void println_vector(std::vector<T> v) {
   print_vector(v);
   std::cout << std::endl;
 }
+
+#endif // UTILS_HPP

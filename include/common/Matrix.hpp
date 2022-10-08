@@ -1,4 +1,6 @@
-#pragma once
+#ifndef MATRIX_HPP
+#define MATRIX_HPP
+
 #include <bits/stdc++.h>
 
 #include "common/utils.hpp"
@@ -22,3 +24,5 @@ void println_matrix(const Matrix<T> &matrix) {
   print_matrix(matrix);
   std::cout << std::endl;
 }
+
+#endif // MATRIX_HPP

@@ -1,4 +1,6 @@
-#pragma once
+#ifndef TREENODE_HPP
+#define TREENODE_HPP
+
 #include <bits/stdc++.h>
 #define null -1
 
@@ -154,3 +156,5 @@ void println_tree(Node *root) {
   print_tree<Node>(root);
   std::cout << std::endl;
 }
+
+#endif // TREENODE_HPP

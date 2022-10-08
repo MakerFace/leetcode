@@ -1,4 +1,6 @@
-#pragma once
+#ifndef LISTNODE_HPP
+#define LISTNODE_HPP
+
 #include <vector>
 
 struct ListNode {
@@ -51,3 +53,5 @@ void print_list(ListNode *root) {
   }
   std::cout << "]" << std::endl;
 }
+
+#endif // LISTNODE_HPP
