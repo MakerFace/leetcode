@@ -48,7 +48,7 @@ int main(int argc, char const* argv[]) {
   Solution sol;
   auto root = string2tree("[0,1,2,0,0,0,0,1,1,1,1,2,2,2,2]");
   auto ans = sol.reverseOddLevels(root);
-  println_tree(ans);
+  std::cout << ans << std::endl;
   delete_tree(root);
   return 0;
 }

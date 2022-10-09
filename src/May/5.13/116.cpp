@@ -39,7 +39,7 @@ class Solution {
   }
 };
 
-template <>
+// template <>
 void println_tree(Node *root) {
   std::cout << "[";
   auto r = root;
@@ -60,6 +60,6 @@ int main(int argc, char const *argv[]) {
   auto root = string2tree<Node>("[1,2,3,4,5,6,7]");
   Solution ans;
   auto res = ans.connect(root);
-  println_tree(res);
+  std::cout << res << std::endl;
   return 0;
 }

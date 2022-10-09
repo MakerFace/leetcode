@@ -64,7 +64,7 @@ int main(int argc, char const* argv[]) {
     std::cout << "\b]" << std::endl;
     auto head = vector2list(nums);
     auto root = ans.sortedListToBST(head);
-    println_tree(root);
+    std::cout << root << std::endl;
   }
   return 0;
 }

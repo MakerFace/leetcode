@@ -102,7 +102,7 @@ int main(int argc, char const *argv[]) {
   while (cin >> n) {
     auto res = ans.generateTrees(n);
     for (auto r : res) {
-      println_tree(r);
+      std::cout << *r << std::endl;
     }
   }
   return 0;

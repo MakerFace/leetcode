@@ -45,6 +45,7 @@ int main(int argc, char const* argv[]) {
   auto head = vector2list({1,2,3,4,5});
   Solution sol;
   auto res = sol.reverseList(head);
-  print_list(res);
+  // print_list(res);
+  std::cout << res << std::endl;
   return 0;
 }

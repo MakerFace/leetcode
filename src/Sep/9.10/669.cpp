@@ -43,7 +43,7 @@ int main(int argc, char const* argv[]) {
   auto root = string2tree("[3,0,4,null,2,null,null,1]");
   Solution sol;
   auto res = sol.trimBST(root, 1, 3);
-  println_tree(res);
+  std::cout << res << std::endl;
   delete_tree(root);
   return 0;
 }

@@ -44,7 +44,7 @@ int main(int argc, char const* argv[]) {
   auto root = string2tree("[7]");
   Solution sol;
   root = sol.expandBinaryTree(root);
-  println_tree(root);
+  std::cout << root << std::endl;
   delete_tree(root);
   return 0;
 }

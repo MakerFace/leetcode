@@ -49,6 +49,6 @@ int main(int argc, char const* argv[]) {
   vector<int> preorder{3, 9, 20, 15, 7}, inorder{3, 9, 20, 15, 7};
   Solution ans;
   auto root = ans.buildTree(preorder, inorder);
-  println_tree(root);
+  std::cout << root << std::endl;
   return 0;
 }

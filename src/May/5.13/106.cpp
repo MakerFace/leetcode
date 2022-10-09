@@ -44,6 +44,6 @@ int main(int argc, char const* argv[]) {
   vector<int> inorder{7, 6, 5, 4, 3, 2, 1}, postorder{1, 2, 3, 4, 5, 6, 7};
   Solution ans;
   auto root = ans.buildTree(inorder, postorder);
-  println_tree(root);
+  std::cout << root << std::endl;
   return 0;
 }

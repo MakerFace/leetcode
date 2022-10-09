@@ -68,7 +68,7 @@ int main(int argc, char const *argv[])
     // vector<int> nums = {1, 9};
     // vector<int> nums = {-10,-3,0,5,9};
     auto res = ans.sortedArrayToBST(nums);
-    println_tree(res);
+    std::cout << res << std::endl;
     std::cout << std::endl;
     return 0;
 }

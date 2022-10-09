@@ -10,6 +10,7 @@
 
 #include "common/Matrix.hpp"
 #include "common/QuadTree.hpp"
+using namespace quadtree;
 using namespace std;
 
 class Solution {

@@ -38,6 +38,6 @@ int main(int argc, char const* argv[]) {
   auto root = string2tree("[1,2,null,5,null,3,null,4,null,6]");
   Solution ans;
   ans.flatten(root);
-  println_tree(root);
+  std::cout << root << std::endl;
   return 0;
 }
