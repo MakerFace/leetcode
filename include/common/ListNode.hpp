@@ -1,6 +1,7 @@
 #ifndef LISTNODE_HPP
 #define LISTNODE_HPP
 
+#include <iostream>
 #include <vector>
 
 struct ListNode {

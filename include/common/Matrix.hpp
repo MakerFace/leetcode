@@ -31,4 +31,22 @@ std::istream& operator<<(std::istream& out, const Matrix<T>& matrix) {
   return out;
 }
 
+template <typename T>
+Matrix<T> string2matrix(const std::string& str) {
+  Matrix<T> ans;
+  std::string::const_iterator first, last;
+  std::vector<T> temp;
+  for (size_t i = 1; i < str.size() - 1; ++i) {
+    if (str[i] == '[') continue;
+    int num = 0;
+    while (str[i] >= '0' and str[i] <= '9') {
+      num *= 10;
+      num += str[i++] - '0';
+    }
+    temp.push_back(num);
+    if (str[i] == ']') ++i, ans.emplace_back(std::move(temp));
+  }
+  return ans;
+}
+
 #endif  // MATRIX_HPP

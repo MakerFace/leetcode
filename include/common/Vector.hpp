@@ -33,4 +33,18 @@ inline std::ostream& operator<<(std::ostream& out, const std::vector<T>& v) {
   return out;
 }
 
+template <typename T>
+std::vector<T> string2vector(const std::string& str) {
+  static std::stringstream ss;
+  ss.str(str.substr(1, str.size() - 1));
+  ss.clear();
+  auto length = std::count_if(str.begin(), str.end(),
+                              [](const char& c) { return c == ','; });
+  std::vector<T> ans(length + 1);
+  int i = 0;
+  std::string temp;
+  while (std::getline(ss, temp, ',')) ans[i++] = std::atoi(temp.c_str());
+  return ans;
+}
+
 #endif  // VECTOR_HPP
