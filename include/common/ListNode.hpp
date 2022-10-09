@@ -41,17 +41,22 @@ ListNode *vector2list(std::vector<int> v) {
   return head;
 }
 
-void print_list(ListNode *root) {
-  std::cout << "[";
+void print_list(const ListNode *root, std::ostream &out = std::cout) {
+  out << "[";
   if (root != nullptr) {
-    std::cout << root->val;
+    out << root->val;
     root = root->next;
   }
   while (root != nullptr) {
-    std::cout << "," << root->val;
+    out << "," << root->val;
     root = root->next;
   }
-  std::cout << "]" << std::endl;
+  out << "]" << std::endl;
 }
 
-#endif // LISTNODE_HPP
+std::ostream &operator<<(std::ostream &out, const ListNode *root) {
+  print_list(root, out);
+  return out;
+}
+
+#endif  // LISTNODE_HPP

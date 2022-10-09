@@ -1,6 +1,8 @@
 #ifndef QUADTREE_HPP
 #define QUADTREE_HPP
 
+namespace quadtree {
+
 // Definition for a QuadTree node.
 class Node {
  public:
@@ -39,7 +41,8 @@ class Node {
     bottomRight = _bottomRight;
   }
 };
+}  // namespace quadtree
 
-void print_quad_tree(const Node *node) {}
+void print_quad_tree(const quadtree::Node *node) {}
 
-#endif // QUADTREE_HPP
+#endif  // QUADTREE_HPP

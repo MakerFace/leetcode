@@ -94,7 +94,8 @@ void delete_tree(Node *root) {
 }
 
 template <class Node = TreeNode>
-void print_tree(Node *root, bool del_tree = false) {
+void print_tree(Node *root, bool del_tree = false,
+                std::ostream &out = std::cout) {
   Node *null_node = new Node(-1);
   std::queue<Node *> queue;
   std::vector<int> v;
@@ -132,29 +133,34 @@ void print_tree(Node *root, bool del_tree = false) {
   }
   delete null_node;
   if (not del_tree) {
-    std::cout << "[";
+    out << "[";
     if (!v.empty()) {
       for (auto i = v.end() - 1; i != v.begin() && *i == -1; --i) {
         v.erase(i);
       }
       if (not v.empty()) {
-        std::cout << v[0];
+        out << v[0];
       }
       for (size_t i = 1; i < v.size(); ++i) {
         if (v[i] == -1)
-          std::cout << ",null";
+          out << ",null";
         else
-          std::cout << "," << v[i];
+          out << "," << v[i];
       }
     }
-    std::cout << "]";
+    out << "]";
   }
 }
 
 template <class Node = TreeNode>
-void println_tree(Node *root) {
+void println_tree(Node *root, std::ostream &out = std::cout) {
   print_tree<Node>(root);
-  std::cout << std::endl;
+  out << std::endl;
 }
 
-#endif // TREENODE_HPP
+inline std::ostream &operator<<(std::ostream &out, const TreeNode &root) {
+  print_tree(&root, false, out);
+  return out;
+}
+
+#endif  // TREENODE_HPP
