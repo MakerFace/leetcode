@@ -9,13 +9,14 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS ON)
 set(CMAKE_CXX_COMPILER g++)
-add_compile_options(-Wall -Werror -fsanitize=address -Wno-unused-function -Wno-unused-variable -Wno-unused-private-field)
+add_compile_options(-Wall -Werror -fsanitize=address -Wno-unused-function -Wno-unused-variable)
 
 set(BUILD_DES_SRC "src/" CACHE PATH "source file directory to compile")
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin")
 
 add_definitions(-DPROJECT_PATH="${PROJECT_SOURCE_DIR}")
+add_definitions(-DMAX_LINE_SIZE=10240)
 
 # include_directories(include)
 
