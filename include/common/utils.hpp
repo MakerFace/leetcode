@@ -1,3 +1,4 @@
+#include "common/GraphNode.hpp"
 #include "common/ListNode.hpp"
 #include "common/Matrix.hpp"
 #include "common/Node.hpp"

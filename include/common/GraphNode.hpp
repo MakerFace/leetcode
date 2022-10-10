@@ -5,6 +5,8 @@
 
 #include "common/Matrix.hpp"
 // Definition for a Node.
+namespace graph {
+
 class Node {
  public:
   int val;
@@ -23,7 +25,10 @@ class Node {
   }
 };
 
-Node* matrix2graph(const Matrix<int>& mat) {
+}  // namespace graph
+
+graph::Node* matrix2graph(const Matrix<int>& mat) {
+  using graph::Node;
   std::vector<Node*> vertex(mat.size());
   for (size_t i = 0; i < mat.size(); ++i) {
     std::vector<Node*> neighbors(mat[i].size());
@@ -43,6 +48,11 @@ Node* matrix2graph(const Matrix<int>& mat) {
   return vertex[0];
 }
 
-void print_graph(Node* node) {}
+void print_graph(graph::Node* node) {}
 
-#endif // GRAPHNODE_HPP
+template <typename T = int>
+Matrix<T> string2graph(const std::string& str) {
+  return string2matrix<T>(str);
+}
+
+#endif  // GRAPHNODE_HPP

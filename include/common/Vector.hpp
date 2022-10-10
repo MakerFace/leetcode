@@ -33,7 +33,7 @@ inline std::ostream& operator<<(std::ostream& out, const std::vector<T>& v) {
   return out;
 }
 
-template <typename T>
+template <typename T = int>
 std::vector<T> string2vector(const std::string& str) {
   static std::stringstream ss;
   ss.str(str.substr(1, str.size() - 1));
