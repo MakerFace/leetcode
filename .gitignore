@@ -11,5 +11,5 @@ CTestTestfile.cmake
 _deps
 build/
 /.vs
-.vscode
+# .vscode
 bin/
