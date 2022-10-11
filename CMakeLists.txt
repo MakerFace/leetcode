@@ -16,7 +16,7 @@ set(BUILD_DES_SRC "src/" CACHE PATH "source file directory to compile")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin")
 
 add_definitions(-DPROJECT_PATH="${PROJECT_SOURCE_DIR}")
-add_definitions(-DMAX_LINE_SIZE=10240)
+add_definitions(-DMAX_LINE_SIZE=102400)
 
 # include_directories(include)
 
