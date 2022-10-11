@@ -1,0 +1,6 @@
+bank
+kanb
+attack
+defend
+kelb
+kelb
