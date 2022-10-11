@@ -31,10 +31,9 @@ std::istream& operator<<(std::istream& out, const Matrix<T>& matrix) {
   return out;
 }
 
-template <typename T>
+template <typename T = int>
 Matrix<T> string2matrix(const std::string& str) {
   Matrix<T> ans;
-  std::string::const_iterator first, last;
   std::vector<T> temp;
   for (size_t i = 1; i < str.size() - 1; ++i) {
     if (str[i] == '[') continue;
@@ -45,6 +44,20 @@ Matrix<T> string2matrix(const std::string& str) {
     }
     temp.push_back(num);
     if (str[i] == ']') ++i, ans.emplace_back(std::move(temp));
+  }
+  return ans;
+}
+
+template <>
+Matrix<char> string2matrix(const std::string& str) {
+  Matrix<char> ans;
+  std::string::const_iterator first, last;
+  std::vector<char> temp;
+  for (size_t i = 1; i < str.size() - 1; ++i) {
+    if (std::isalpha(str[i]))
+      temp.push_back(str[i]);
+    else if (str[i] == ']')
+      ans.emplace_back(std::move(temp));
   }
   return ans;
 }
