@@ -52,6 +52,7 @@ void print_graph(const graph::Node* node, std::ostream& out = std::cout) {
   if (node) {
     std::map<int, std::vector<int>> nei_map;
     std::queue<const graph::Node*> que;
+    nei_map[1];
     que.emplace(node);
     while (not que.empty()) {
       auto top = que.front();
@@ -73,7 +74,6 @@ void print_graph(const graph::Node* node, std::ostream& out = std::cout) {
       if (not neighbor.second.empty()) out << "\b";
       out << "]";
     }
-    if (not nei_map.empty()) out << "\b";
     out << "]";
   } else {
     out << "[]";
