@@ -10,6 +10,7 @@
 #include "common/Node.hpp"
 #include "common/utils.hpp"
 
+using tree::Node;
 using namespace std;
 
 class Solution
