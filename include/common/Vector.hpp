@@ -4,6 +4,8 @@
 #include <ostream>
 #include <vector>
 
+#include "common/common.hpp"
+
 template <typename T>
 inline void print_vector(const std::vector<T>& v) {
   size_t i = 0;
@@ -36,14 +38,19 @@ inline std::ostream& operator<<(std::ostream& out, const std::vector<T>& v) {
 template <typename T = int>
 std::vector<T> string2vector(const std::string& str) {
   static std::stringstream ss;
-  ss.str(str.substr(1, str.size() - 1));
+  using Opt = typename std::conditional<
+      std::is_integral<T>::value,
+      typename std::conditional<std::is_same<T, char>::value,
+                                typename str2char<T>::type,
+                                typename str2int<T>::type>::type,
+      typename identity<T>::type>::type;
+  Opt opt;
+  ss.str(str.substr(1, str.size() - 2));
   ss.clear();
-  auto length = std::count_if(str.begin(), str.end(),
-                              [](const char& c) { return c == ','; });
-  std::vector<T> ans(length + 1);
-  int i = 0;
+  std::vector<T> ans;
   std::string temp;
-  while (std::getline(ss, temp, ',')) ans[i++] = std::atoi(temp.c_str());
+  while (std::getline(ss, temp, ','))
+   ans.emplace_back(opt(temp));
   return ans;
 }
 

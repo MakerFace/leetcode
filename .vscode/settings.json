@@ -76,7 +76,8 @@
         "cuchar": "cpp",
         "filesystem": "cpp",
         "variant": "cpp",
-        "charconv": "cpp"
+        "charconv": "cpp",
+        "*.txx": "cpp"
     },
     "cmake.configureOnOpen": false
 }
