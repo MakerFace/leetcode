@@ -11,7 +11,9 @@ using namespace std;
 
 class Solution {
  public:
-  int longestConsecutive(vector<int>& nums) {}
+  int longestConsecutive(vector<int>& nums) {
+    return 0;
+  }
 };
 
 int main(int argc, char const* argv[]) {
