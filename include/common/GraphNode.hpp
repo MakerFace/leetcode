@@ -2,6 +2,9 @@
 #define GRAPHNODE_HPP
 
 #include <vector>
+#include <queue>
+#include <unordered_map>
+#include <unordered_set>
 
 #include "common/Matrix.hpp"
 // Definition for a Node.
