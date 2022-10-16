@@ -72,6 +72,7 @@ class NestedIterator {
 
  private:
   stack<pair<ConstNestedIterator, ConstNestedIterator>>
+  // stack<const vector<NestedInteger>&>
       sta;  // BUG **引用**将亡值
   // FIXED 去掉引用！！！不要在容器中使用引用，除非你很确定生命周期
   // FIXED 使用vector迭代器辅助实现
