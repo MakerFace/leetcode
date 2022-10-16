@@ -33,6 +33,9 @@ using namespace std;
  */
 
 class NestedIterator {
+  using ConstNestedIterator = std::vector<NestedInteger>::const_iterator;
+  const ConstNestedIterator END_ITER = std::vector<NestedInteger>().end();
+
  public:
   /**
    * @brief 不能复制原有数据！也不能改变原有结构！
@@ -42,48 +45,37 @@ class NestedIterator {
     sta.emplace(make_pair(
         nestedList.begin(),
         nestedList.end()));  // BUG move之后，第一个list的integer变为true？
-    // FIXED 
+    // FIXED
   }
 
-  int next() {
-    while (not sta.empty()) {
-      auto &top = sta.top();
-      if (top.second < top.first.size()) {
-        auto &next_nested_integer = top.first.at(top.second);
-        if (next_nested_integer.isInteger()) {
-          return top.first.at(top.second++).getInteger();
-        } else {
-          sta.emplace(make_pair(top.first.at(top.second++).getList(), 0));
-        }
-      } else {
-        sta.pop();
-      }
-    }
-    return -1;
-  }
+  int next() { return cur->getInteger(); }
 
   bool hasNext() {
     while (not sta.empty()) {
-      auto &top = sta.top();
-      if (top.second < top.first.size()) {
-        auto &next_nested_integer = top.first.at(top.second);
-        if (next_nested_integer.isInteger()) {
-          return true;
-        } else {
-          sta.emplace(make_pair(top.first.at(top.second++).getList(), 0));
-        }
-      } else {
+      pair<ConstNestedIterator, ConstNestedIterator> &top = sta.top();
+      if (top.first >= top.second) {
         sta.pop();
+        continue;
+      }
+      if (top.first->isInteger()) {
+        cur = top.first;
+        top.first++;
+        return true;
+      } else {
+        sta.emplace(make_pair(top.first->getList().begin(),
+                              top.first->getList().end()));
+        top.first++;
       }
     }
     return false;
   }
 
  private:
-  stack<pair<vector<NestedInteger>::iterator, vector<NestedInteger>::iterator>>
+  stack<pair<ConstNestedIterator, ConstNestedIterator>>
       sta;  // BUG **引用**将亡值
   // FIXED 去掉引用！！！不要在容器中使用引用，除非你很确定生命周期
   // FIXED 使用vector迭代器辅助实现
+  ConstNestedIterator cur;
 };
 
 /**
