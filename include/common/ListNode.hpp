@@ -55,9 +55,17 @@ void print_list(const ListNode *root, std::ostream &out = std::cout) {
   out << "]" << std::endl;
 }
 
+void delete_list(ListNode *root) {
+  while (root) {
+    auto del_node = root;
+    root = root->next;
+    delete del_node;
+  }
+}
+
 std::ostream &operator<<(std::ostream &out, const ListNode *root) {
   print_list(root, out);
   return out;
 }
 
-#endif  // LISTNODE_HPP
+#endif // LISTNODE_HPP
