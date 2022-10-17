@@ -42,6 +42,18 @@ ListNode *vector2list(std::vector<int> v) {
   return head;
 }
 
+ListNode *string2list(const std::string &str) {
+  return vector2list(string2vector(str));
+}
+
+void delete_list(ListNode *&head) {
+  while (head) {
+    auto next = head;
+    head = head->next;
+    delete next;
+  }
+}
+
 void print_list(const ListNode *root, std::ostream &out = std::cout) {
   out << "[";
   if (root != nullptr) {

@@ -89,6 +89,25 @@ Node *string2tree(std::string data) {
 }
 
 template <class Node = TreeNode>
+std::vector<Node *> find_in_tree(Node *root, int target) {
+  std::vector<Node *> ans;
+  std::stack<std::pair<Node *, int>> sta;
+  while (root or not sta.empty()) {
+    if (root) {
+      if (root->val == target) ans.emplace_back(root);
+      sta.push(std::make_pair(root, 0));
+      root = root->left;
+    } else {
+      auto &top = sta.top();
+      top.second++;
+      if (top.second == 1) sta.pop();
+      root = top.first->right;
+    }
+  }
+  return ans;
+}
+
+template <class Node = TreeNode>
 void delete_tree(Node *root) {
   print_tree(root, true);
 }

@@ -33,7 +33,7 @@ std::istream& operator<<(std::istream& out, const Matrix<T>& matrix) {
   return out;
 }
 
-template <typename T>
+template <typename T = int>
 Matrix<T> string2matrix(const std::string& str) {
   static std::stringstream ss;
   Matrix<T> ans;
@@ -43,7 +43,7 @@ Matrix<T> string2matrix(const std::string& str) {
   std::string s;
   while (std::getline(ss, temp, '[')) {
     s = "[" + temp;
-    if (s.back() == ',') s.pop_back(); 
+    if (s.back() == ',') s.pop_back();
     if (s.back() == ']')
       ans.emplace_back(std::move(string2vector<T>(s))), s.clear();
   }
