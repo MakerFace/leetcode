@@ -55,7 +55,7 @@
    - 指针需要解引用，例如`std::cout << *root << std::endl;`。
    - list，tree需要回收内存，`delete_list`，`delete_tree`。
 
-   ![image-20221024213151890](https://raw.githubusercontent.com/MakerFace/images/main/image-20221024213151890.png)
+   ![image-20221024215810900](https://raw.githubusercontent.com/MakerFace/images/main/image-20221024215810900.png)
 
 6. 构建
 
@@ -71,3 +71,12 @@
 
 有问题可以反馈，邮箱：chenqi@imudges.com。
 
+---
+
+`PROJECT_PATH`和`MAX_LINE_SIZE`定义于项目根目录的`CMakeLists.txt`中。如果vscode的插件(C/C++插件)无法识别，使用如下方法解决。
+
+![image-20221024220154169](https://raw.githubusercontent.com/MakerFace/images/main/image-20221024220154169.png)
+
+插件`clangd`可以正确识别：
+
+![image-20221024220324749](https://raw.githubusercontent.com/MakerFace/images/main/image-20221024220324749.png)
