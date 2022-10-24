@@ -79,5 +79,6 @@
         "charconv": "cpp",
         "*.txx": "cpp"
     },
-    "cmake.configureOnOpen": false
+    "cmake.configureOnOpen": false,
+    "vim.ignorecase": true
 }
