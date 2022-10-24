@@ -1,5 +1,7 @@
 # Leetcode模板
 
+自己刷题可以先把`src`目录删掉。
+
 1. 目录结构
 
 ![image-20221024213329264](https://raw.githubusercontent.com/MakerFace/images/main/image-20221024213329264.png)
