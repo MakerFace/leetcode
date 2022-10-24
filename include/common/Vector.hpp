@@ -1,8 +1,9 @@
 #ifndef VECTOR_HPP
 #define VECTOR_HPP
 
-#include <ostream>
+#include <iostream>
 #include <vector>
+#include <sstream>
 
 #include "common/common.hpp"
 
