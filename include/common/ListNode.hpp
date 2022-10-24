@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include "common/Vector.hpp"
 
 struct ListNode {
   int val;
@@ -67,8 +68,8 @@ void print_list(const ListNode *root, std::ostream &out = std::cout) {
   out << "]" << std::endl;
 }
 
-std::ostream &operator<<(std::ostream &out, const ListNode *root) {
-  print_list(root, out);
+std::ostream &operator<<(std::ostream &out, const ListNode root) {
+  print_list(&root, out);
   return out;
 }
 
