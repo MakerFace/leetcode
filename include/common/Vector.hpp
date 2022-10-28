@@ -60,8 +60,10 @@ std::vector<T> string2vector(const std::string &str) {
   ss.clear();
   std::vector<T> ans;
   std::string temp;
-  while (std::getline(ss, temp, ','))
+  while (std::getline(ss, temp, ',')){
+    temp = trim(trim(temp), '"');
     ans.emplace_back(opt(temp));
+  }
   return ans;
 }
 
