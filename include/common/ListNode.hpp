@@ -1,6 +1,7 @@
 #ifndef LISTNODE_HPP
 #define LISTNODE_HPP
 
+#include "common/Vector.hpp"
 #include <iostream>
 #include <vector>
 
@@ -65,14 +66,6 @@ void print_list(const ListNode *root, std::ostream &out = std::cout) {
     root = root->next;
   }
   out << "]" << std::endl;
-}
-
-void delete_list(ListNode *root) {
-  while (root) {
-    auto del_node = root;
-    root = root->next;
-    delete del_node;
-  }
 }
 
 std::ostream &operator<<(std::ostream &out, const ListNode *root) {
