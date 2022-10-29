@@ -28,13 +28,48 @@ struct str2char {
   }
 };
 
+/**
+ * @brief 证同
+ */
 template <typename T>
 struct identity {
   typedef identity type;
 
   identity() {}
 
-  T operator()(const T& str) { return str.substr(1, str.size() - 2); }
+  T operator()(const T& str) { return str; }
 };
+
+/**
+ * @brief trim left white space
+ * @param  s                the string to trim space
+ * @param  white            white space
+ * @return std::string
+ */
+std::string ltrim(const std::string& s, char white) {
+  size_t start = s.find_first_not_of(white);
+  return (start == std::string::npos) ? "" : s.substr(start);
+}
+
+/**
+ * @brief trim right white space
+ * @param  s                the string to trim space
+ * @param  white            white space
+ * @return std::string
+ */
+std::string rtrim(const std::string& s, char white) {
+  size_t end = s.find_last_not_of(white);
+  return (end == std::string::npos) ? "" : s.substr(0, end + 1);
+}
+
+/**
+ * @brief trim left and right white space
+ * @param  s                the string to trim space
+ * @param  white            white space, default is space(32)
+ * @return std::string 
+ */
+std::string trim(const std::string& s, char white = ' ') {
+  return rtrim(ltrim(s, white), white);
+}
 
 #endif  // COMMON_HPP

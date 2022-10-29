@@ -1,0 +1,6 @@
+["StockSpanner","next","next","next","next","next","next","next"]
+[[],[100],[80],[60],[70],[60],[75],[85]]
+["StockSpanner","next","next","next","next","next"]
+[[],[29],[91],[62],[76],[51]]
+["StockSpanner","next","next","next","next","next","next","next","next","next","next"]
+[[],[28],[14],[28],[35],[46],[53],[66],[80],[87],[88]]

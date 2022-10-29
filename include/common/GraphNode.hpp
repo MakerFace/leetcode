@@ -4,6 +4,7 @@
 #include <vector>
 #include <queue>
 #include <unordered_map>
+#include <algorithm>
 #include <unordered_set>
 
 #include "common/Matrix.hpp"
@@ -53,7 +54,7 @@ graph::Node* matrix2graph(const Matrix<int>& mat) {
 
 void print_graph(const graph::Node* node, std::ostream& out = std::cout) {
   if (node) {
-    std::map<int, std::vector<int>> nei_map;
+    std::unordered_map<int, std::vector<int>> nei_map;
     std::queue<const graph::Node*> que;
     nei_map[1];
     que.emplace(node);
