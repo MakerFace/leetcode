@@ -67,7 +67,7 @@ struct alignas(16) foo_n {
 class Base {
  public:
   Base() {}
-  virtual int get(int x = 2) = 0;
+  int get(int x = 2) { return x; };
 };
 
 class Test : public Base {
@@ -79,7 +79,7 @@ class Test : public Base {
   Test() {}
   Test(int _x) {}
   explicit operator int() { return 1; }
-  virtual int get(int x = 3) {
+  int get(int x = 3) {
     return x;
   }  // 默认参数无效，使用的仍是父类的默认参数（缺省参数静态绑定导致）
 };
@@ -157,32 +157,35 @@ int main(int argc, char const *argv[]) {
   // heap = std::move(pq).sorted_container();
   //   println_vector(heap);
   //   return 0;
-  int n = 16;
-  cin >> n;
-  vector<int> nums(n);
-  default_random_engine dre(time(0));
-  generate(nums.begin(), nums.end(), [&]() { return n--; });
-  println_vector(nums);
+  // int n = 16;
+  // cin >> n;
+  // vector<int> nums(n);
+  // default_random_engine dre(time(0));
+  // generate(nums.begin(), nums.end(), [&]() { return n--; });
+  // println_vector(nums);
 
-  auto len = static_cast<int>(nums.size());
+  // auto len = static_cast<int>(nums.size());
 
-  auto begin = nums.begin();
-  auto middle = begin, end = begin;
-  for (int n = 2; n <= len; n *= 2) {
-    begin = nums.begin();
-    middle = begin + n / 2;
-    end = begin + n;
-    while (end <= nums.end()) {
-      inplace_merge(begin, middle, end);
-      begin = end;
-      middle = begin + n / 2;
-      end = begin + n;
-    }
-  }
-  if (begin < nums.end()) {
-    inplace_merge(nums.begin(), begin, nums.end());
-  }
+  // auto begin = nums.begin();
+  // auto middle = begin, end = begin;
+  // for (int n = 2; n <= len; n *= 2) {
+  //   begin = nums.begin();
+  //   middle = begin + n / 2;
+  //   end = begin + n;
+  //   while (end <= nums.end()) {
+  //     inplace_merge(begin, middle, end);
+  //     begin = end;
+  //     middle = begin + n / 2;
+  //     end = begin + n;
+  //   }
+  // }
+  // if (begin < nums.end()) {
+  //   inplace_merge(nums.begin(), begin, nums.end());
+  // }
 
-  println_vector(nums);
+  // println_vector(nums);
+  Base* base = new Test();
+  // Test* test = dynamic_cast<Test*>(base);
+  // std::cout << test->get() << std::endl;
   return 0;
 }
