@@ -1,0 +1,6 @@
+[["phone","blue","pixel"],["computer","silver","lenovo"],["phone","gold","iphone"]]
+"color"
+"silver"
+[["phone","blue","pixel"],["computer","silver","phone"],["phone","gold","iphone"]]
+"type"
+"phone"
