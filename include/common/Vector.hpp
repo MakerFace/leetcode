@@ -2,6 +2,7 @@
 #define VECTOR_HPP
 
 #include <iostream>
+#include <ostream>
 #include <sstream>
 #include <vector>
 
@@ -17,18 +18,19 @@ struct vector_hash {
   }
 };
 
-template <typename T> inline void print_vector(const std::vector<T> &v) {
+template <typename T>
+inline void print_vector(const std::vector<T> &v) {
   size_t i = 0;
   std::cout << "[";
-  if (!v.empty())
-    std::cout << v[i++];
+  if (!v.empty()) std::cout << v[i++];
   for (; i < v.size(); ++i) {
     std::cout << "," << v[i];
   }
   std::cout << "]";
 }
 
-template <typename T> inline void println_vector(const std::vector<T> &v) {
+template <typename T>
+inline void println_vector(const std::vector<T> &v) {
   print_vector(v);
   std::cout << std::endl;
 }
@@ -37,8 +39,7 @@ template <typename T>
 inline std::ostream &operator<<(std::ostream &out, const std::vector<T> &v) {
   size_t i = 0;
   out << "[";
-  if (!v.empty())
-    std::cout << v[i++];
+  if (!v.empty()) std::cout << v[i++];
   for (; i < v.size(); ++i) {
     out << "," << v[i];
   }
@@ -60,11 +61,11 @@ std::vector<T> string2vector(const std::string &str) {
   ss.clear();
   std::vector<T> ans;
   std::string temp;
-  while (std::getline(ss, temp, ',')){
+  while (std::getline(ss, temp, ',')) {
     temp = trim(trim(temp), '"');
     ans.emplace_back(opt(temp));
   }
   return ans;
 }
 
-#endif // VECTOR_HPP
+#endif  // VECTOR_HPP
