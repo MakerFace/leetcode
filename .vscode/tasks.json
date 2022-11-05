@@ -1,0 +1,17 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build-leetcode",
+      "type": "shell",
+      "command": "${workspaceFolder}/build.sh",
+      "group": "build",
+      "presentation": {
+        "focus": false,
+        "reveal": "silent",
+        "revealProblems": "onProblem",
+        "clear": false
+      }
+    }
+  ]
+}
