@@ -66,24 +66,24 @@ using namespace std;
 //   char c;
 // };
 
-class Base {
- public:
-  Base() {}
-  int get(int x = 2) { return x; };
-};
+// class Base {
+//  public:
+//   Base() {}
+//   int get(int x = 2) { return x; };
+// };
 
 // struct TestS {
 //   int a, b;
 // };
 
- public:
-  Test() {}
-  Test(int _x) {}
-  explicit operator int() { return 1; }
-  int get(int x = 3) {
-    return x;
-  }  // 默认参数无效，使用的仍是父类的默认参数（缺省参数静态绑定导致）
-};
+//  public:
+//   Test() {}
+//   Test(int _x) {}
+//   explicit operator int() { return 1; }
+//   int get(int x = 3) {
+//     return x;
+//   }  // 默认参数无效，使用的仍是父类的默认参数（缺省参数静态绑定导致）
+// };
 __attribute__((constructor)) void before() { printf("before main\n"); }
 
 // public:
@@ -137,7 +137,7 @@ __attribute__((constructor)) void before() { printf("before main\n"); }
 //   return 3;
 // }();
 
-// __attribute__((destructor)) void after() { printf("after main\n"); }
+__attribute__((destructor)) void after() { printf("after main\n"); }
 // constexpr int getFive() { return 5; }
 // const int getFive(int x) { return x; }
 
@@ -198,8 +198,9 @@ int main(int argc, char const *argv[]) {
   // }
 
   // println_vector(nums);
-  Base* base = new Test();
+  // Base* base = new Test();
   // Test* test = dynamic_cast<Test*>(base);
   // std::cout << test->get() << std::endl;
+  std::cout << "main function" << std::endl;
   return 0;
 }
