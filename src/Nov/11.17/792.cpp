@@ -25,14 +25,25 @@ class Solution {
       map[s[i]].push_back(i);
     }
 
-    for (auto&& word : words) {
+    for (int j = 0; j < words.size(); ++j) {
+      auto word = words[j];
       int i = 0;
+      array<int, 26> idx{0};
+      int cur_idx = -1;
       for (; i < word.size(); ++i) {
-        auto iter =
-            lower_bound(map[word[i]].begin() + i, map[word[i]].end(), i);
-        if (iter == map[word[i]].end()) {
+        if (map.count(word[i]) == 0) {
           break;
         }
+        auto iter = lower_bound(map[word[i]].begin() + idx[word[i] - 'a'],
+                                map[word[i]].end(), i) -
+                    map[word[i]].begin();
+        if (iter >= map[word[i]].size()) {
+          break;
+        }
+        if (map[word[i] - 'a'][iter] < cur_idx) {
+          cur_idx = ;
+        }
+        idx[word[i] - 'a']++;
       }
       ans += i == word.size();
     }

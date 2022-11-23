@@ -7,8 +7,8 @@
  */
 #include <bits/stdc++.h>
 
-#include <algorithm>
 #include <numeric>
+#include <unordered_set>
 
 #include "common/Vector.hpp"
 
@@ -22,35 +22,30 @@ class Solution {
     if (len == 1) {
       return false;
     }
-    for_each(nums.begin(), nums.end(), [sum, len](int &n) {
-      n *= len;
-      n -= sum;
-    });
-    sort(nums.begin(), nums.end());
-    auto zero = lower_bound(nums.begin(), nums.end(), 0);
-    if (*zero == 0) {
-      //* 计算剩余元素和是否为0
-      return true;
+    for_each(nums.begin(), nums.end(),
+             [sum, len](int &n) { n = n * len - sum; });
+    unordered_set<int> left;
+    for (int i = 1; i < (1 << (len / 2)); ++i) {
+      int tot = 0;
+      for (int j = 0; j < len / 2; ++j) {
+        if (i & (1 << j)) tot += nums[j];
+      }
+      if (not tot) {  // 和为0，满足要求
+        return true;
+      }
+      left.emplace(tot);
     }
-    int sum_a = nums[0];
-    nums.erase(nums.begin());
-    while (sum_a) {
-      zero = lower_bound(nums.begin(), nums.end(), 0);
-      if (sum_a < 0) {
-        auto pos_sum_a = lower_bound(zero, nums.end(), -sum_a);
-        sum_a += *pos_sum_a;
-        nums.erase(pos_sum_a);
-      } else {
-        auto neg_sum_a = lower_bound(nums.begin(), zero, -sum_a);
-        sum_a += *neg_sum_a;
-        nums.erase(neg_sum_a);
+    int rsum = accumulate(nums.begin() + len / 2, nums.end(), 0);
+    for (int i = 1; i < (1 << (len - (len / 2))); ++i) {
+      int tot = 0;
+      for (int j = len / 2; j < len; ++j) {
+        if (i & (1 << (j - len / 2))) tot += nums[j];
+      }
+      if (not tot or (rsum != tot and left.count(-tot))) {
+        return true;
       }
     }
-    if (nums.empty()) {
-      return false;
-    }
-    int sum_b = accumulate(nums.begin(), nums.end(), 0);
-    return sum_a == 0 and sum_b == 0;
+    return false;
   }
 };
 
@@ -62,7 +57,7 @@ int main(int argc, char const *argv[]) {
     Solution sol;
     auto nums = string2vector(buf);
     auto ans = sol.splitArraySameAverage(nums);
-    std::cout << boolalpha << ans << std::endl;
+    std::cout << ans << std::endl;
   }
   return 0;
 }
