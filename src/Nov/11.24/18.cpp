@@ -5,6 +5,7 @@
  * @version 1.0
  * @date 2022-11-23
  */
+
 #include <bits/stdc++.h>
 
 #include <algorithm>
@@ -20,16 +21,13 @@ class Solution {
     sort(nums.begin(), nums.end());
     const int n = nums.size();
     for (int i = 0; i < n; ++i) {  // x
-      if (nums[i] > target) {
-        break;
-      }
       if (i > 0 and nums[i] == nums[i - 1]) continue;
       for (int j = i + 1; j < n; ++j) {  // y
         if (j > i + 1 and nums[j] == nums[j - 1]) continue;
         int l = n - 1;
         for (int k = j + 1; k < n; ++k) {  // z
           if (k > j + 1 and nums[k] == nums[k - 1]) continue;
-          int value = -1;
+          int value = INT_MIN;
           while (l > k) {
             value = nums[i] + nums[j] + nums[k] + nums[l];
             if (value > target) {
@@ -49,7 +47,7 @@ class Solution {
 };
 
 int main(int argc, char const* argv[]) {
-  string s = string(PROJECT_PATH).append("/src/Nov/11.23/18.txt");
+  string s = string(PROJECT_PATH).append("/src/Nov/11.24/18.txt");
   char buf[MAX_LINE_SIZE];
   ifstream in(s, ios::binary | ios::in);
   while (in.getline(buf, MAX_LINE_SIZE)) {
