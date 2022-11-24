@@ -39,6 +39,39 @@
     "editor.inlayHints.padding": true,
     "javascript.inlayHints.enumMemberValues.enabled": false,
     "editor.formatOnPaste": true,
-    "editor.minimap.autohide": true
+    "editor.minimap.autohide": true,
+    "editor.fontFamily": "'Jetbrains Mono', 'HarmonyOS Sans SC'",
+    "cmake.copyCompileCommands": "${workspaceFolder}"
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "lldb",
+        "request": "launch",
+        "name": "Debug",
+        "program": "${workspaceFolder}/bin/${fileBasenameNoExtension}",
+        "args": [],
+        "cwd": "${workspaceFolder}"
+      }
+    ],
+    "compounds": []
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "build-leetcode",
+        "type": "shell",
+        "command": "${workspaceFolder}/build.sh",
+        "group": "build",
+        "presentation": {
+          "focus": false,
+          "reveal": "silent",
+          "revealProblems": "onProblem",
+          "clear": false
+        }
+      }
+    ]
   }
 }
