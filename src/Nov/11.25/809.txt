@@ -1,0 +1,10 @@
+heeellooo
+["hello", "hi", "helo"]
+zzzzzyyyyy
+["zzyy","zy","zyy"]
+heell
+["hel", "heel"]
+aaa
+["aaaa"]
+heeellooo
+["axxxrrzzz"]
